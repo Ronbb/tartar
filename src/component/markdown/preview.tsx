@@ -4,14 +4,16 @@ import mock from "./mock";
 import { Typography } from "antd";
 import { CodePreview } from "../code";
 
-export interface MarkdownPreviewProps {}
+export interface MarkdownPreviewProps {
+  source?: string
+}
 
 const MarkdownPreview: FC<MarkdownPreviewProps> = (
   props: MarkdownPreviewProps
 ) => {
   return (
     <ReactMarkdown
-      source={mock}
+      source={props.source ?? mock}
       skipHtml={false}
       escapeHtml={false}
       renderers={{
